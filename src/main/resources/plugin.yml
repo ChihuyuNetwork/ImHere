@@ -1,0 +1,18 @@
+name: ImHere
+version: '1.0.0'
+main: love.chihuyu.imhere.ImHere
+api-version: 1.18
+prefix: ImHere
+authors: [ Hirosuke ]
+description: Send my location in one command.
+website: chihuyu.love
+commands:
+  here:
+    description: Shows player's location.
+permissions:
+  here.command.*:
+    default: true
+    children:
+      here.command.here: true
+  here.command.here:
+    default: true
