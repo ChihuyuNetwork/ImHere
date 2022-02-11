@@ -13,9 +13,13 @@ object HereCommand: CommandExecutor, TabCompleter {
 
         if (args.isNotEmpty()) {
             val player = plugin.server.getPlayer(args[0]) ?: return true
-            plugin.server.broadcastMessage("(${sender.name}) ${player.name}'s Location: ${player.location.x}, ${player.location.y}, ${player.location.z}")
+            plugin.server.onlinePlayers.forEach {
+                it.sendMessage("§7(§6${sender.name}§7) ${player.name}'s Location: ${"%,.1f".format(player.location.x)}, ${"%,.1f".format(player.location.y)}, ${"%,.1f".format(player.location.z)}")
+            }
         } else {
-            plugin.server.broadcastMessage("(${sender.name}) ${sender.name}'s Location: ${sender.location.x}, ${sender.location.y}, ${sender.location.z}")
+            plugin.server.onlinePlayers.forEach {
+                it.sendMessage("§7(§6${sender.name}§7) ${sender.name}'s Location: ${"%,.1f".format(sender.location.x)}, ${"%,.1f".format(sender.location.y)}, ${"%,.1f".format(sender.location.z)}")
+            }
         }
 
         return true

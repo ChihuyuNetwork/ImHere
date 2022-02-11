@@ -1,5 +1,5 @@
 name: ImHere
-version: '1.0.0'
+version: '1.0.1'
 main: love.chihuyu.imhere.ImHere
 api-version: 1.18
 prefix: ImHere
