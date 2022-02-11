@@ -31,6 +31,6 @@ object HereCommand: CommandExecutor, TabCompleter {
         alias: String,
         args: Array<out String>
     ): MutableList<String> {
-        return plugin.server.onlinePlayers.map { it.name }.toMutableList()
+        return if (args.size == 1) plugin.server.onlinePlayers.map { it.name }.toMutableList() else mutableListOf()
     }
 }
