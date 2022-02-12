@@ -6,8 +6,6 @@ prefix: ImHere
 authors: [ Hirosuke ]
 description: Send my location in one command.
 website: chihuyu.love
-depend:
-  - Kotlin
 commands:
   here:
     description: Shows player's location.
