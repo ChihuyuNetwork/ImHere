@@ -33,6 +33,15 @@ java {
     }
 }
 
+jar {
+    from {
+        duplicatesStrategy 'exclude'
+        configurations.runtimeClasspath.collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+    }
+}
+
 tasks.withType(JavaCompile).configureEach {
     if (targetJavaVersion >= 10 || JavaVersion.current().isJava10Compatible()) {
         options.release = targetJavaVersion
