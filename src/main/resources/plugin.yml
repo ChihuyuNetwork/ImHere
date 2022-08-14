@@ -14,5 +14,8 @@ permissions:
     default: true
     children:
       here.command.here: true
+      here.command.see: true
   here.command.here:
+    default: true
+  here.command.see:
     default: true

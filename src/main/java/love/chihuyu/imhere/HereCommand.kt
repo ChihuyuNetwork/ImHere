@@ -12,7 +12,7 @@ object HereCommand: CommandExecutor, TabCompleter {
         if (sender !is Player || !sender.hasPermission("here.command.here")) return true
 
         val player = if (args.isNotEmpty()) sender else plugin.server.getPlayer(args[0]) ?: return true
-        plugin.server.onlinePlayers.forEach {
+        plugin.server.onlinePlayers.filter { it.hasPermission("here.command.see") }.forEach {
             it.sendMessage("§7(§6${sender.name}§7) ${player.name}'s Location: (${sender.world.name}) ${"%,.1f".format(player.location.x)}, ${"%,.1f".format(player.location.y)}, ${"%,.1f".format(player.location.z)}")
         }
 
