@@ -4,7 +4,7 @@ Share the my location and show other player's locations.
 ## Commands
 
 * `/here {player}`
-show player's location. nothing to me.
+show player's location to everyone. nothing to me.
 
 ## Permissions
 
