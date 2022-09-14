@@ -13,3 +13,6 @@ use all commands.
 
 * `here.command.here`
 use /here
+
+* `here.see`
+see location when someone run /here
