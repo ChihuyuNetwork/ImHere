@@ -1,10 +1,11 @@
 plugins {
     id 'java'
     id 'org.jetbrains.kotlin.jvm' version '1.7.10'
+    id "org.jlleitschuh.gradle.ktlint" version '10.3.0'
 }
 
 group = 'love.chihuyu'
-version = ''
+version = '2.0.1'
 
 repositories {
     mavenCentral()
@@ -16,11 +17,18 @@ repositories {
         name = 'sonatype'
         url = 'https://oss.sonatype.org/content/groups/public/'
     }
+    maven { url = "https://repo.codemc.org/repository/maven-public/" }
 }
 
 dependencies {
     compileOnly 'org.spigotmc:spigot-api:1.19.2-R0.1-SNAPSHOT'
+    compileOnly "dev.jorel:commandapi-core:8.5.1"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+}
+
+ktlint {
+    ignoreFailures = true
+    disabledRules = ["no-wildcard-imports"]
 }
 
 def targetJavaVersion = 17
@@ -56,11 +64,13 @@ processResources {
         expand props
     }
 }
+
 compileKotlin {
     kotlinOptions {
         jvmTarget = "1.8"
     }
 }
+
 compileTestKotlin {
     kotlinOptions {
         jvmTarget = "1.8"
