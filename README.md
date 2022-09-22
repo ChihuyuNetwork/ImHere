@@ -8,11 +8,8 @@ show player's location to everyone. nothing to me.
 
 ## Permissions
 
-* `here.command.*`
-use all commands.
-
-* `here.command.here`
+* `imhere.here`
 use /here
 
-* `here.see`
+* `imhere.see`
 see location when someone run /here
